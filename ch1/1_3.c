@@ -4,8 +4,8 @@
 // Date: Sun Aug 27 2017
 
 #include <stdio.h>
-
 #define ASCII_ZERO 48
+
 int main() {
   int integer_value = 0;
   char c;
