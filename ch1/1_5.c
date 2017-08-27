@@ -12,6 +12,11 @@
 #define SORT_SIZE 5
 #define ASCII_ZERO 48
 
+static char map[] = {
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  'A', 'B', 'C', 'D', 'E', 'F'
+};
+
 int get_int() {
   int integer_value = 0;
   char c;
@@ -23,23 +28,44 @@ int get_int() {
   return integer_value;
 }
 
-void print_decimal(int num) {
-  printf("Decimal: ");
-  while (num >= 10) {
-    int n = num / 10;
-    num -= (10 * n);
-    printf("%d", n);
+#define BUF_MAX 32 // I.e 32 bits
+void print_base(int n, int b, char* digits) {
+  char buf[BUF_MAX] = {0};
+  int i = 0;
+  while (n) {
+    buf[i++] = digits[n % b];
+    n /= b;
   }
-  printf("%d\n", num % 10);
+
+  while (i >= 0) {
+    printf("%c", buf[i--]);
+  }
+}
+
+void print_decimal(int num) {
+  static char map[] = {
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  };
+  printf("Decimal: ");
+  print_base(num, 10, map);
+  printf("\n");
 }
 
 void print_hexadecimal(int num) {
+  static char map[] = {
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F'
+  };
+
   printf("Hexadecimal: ");
+  print_base(num, 16, map);
   printf("\n");
 }
 
 void print_binary(int num) {
+  static char map[] = { '0', '1' };
   printf("Binary: ");
+  print_base(num, 2, map);
   printf("\n");
 }
 
