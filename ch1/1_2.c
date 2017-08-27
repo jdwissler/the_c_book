@@ -1,3 +1,4 @@
+// Exercise 1.2
 // A simple program that prints 'prime pairs' which only differ by 2. (i.e 29, 31 or 11, 13)
 // Author: John D. Wissler
 // Date: Sun Aug 27 2017
