@@ -1,3 +1,7 @@
+// A simple copying and pasting of Example 1.1
+// Author: John D. Wissler
+// Date: Sun Aug 27 2017
+
 #include <stdio.h>
 #include <stdlib.h>
 /*
