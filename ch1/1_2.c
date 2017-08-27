@@ -14,7 +14,7 @@ int main() {
   bool is_prime = false;
 
   for (int check = 3; check < MAX_PRIME; ++check) {
-    divisor = check / 2;
+    divisor = check / 2; // This is naive
     is_prime = true;
 
     while (divisor > 1) {
