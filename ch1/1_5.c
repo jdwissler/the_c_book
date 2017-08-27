@@ -24,6 +24,7 @@ int get_int() {
 
 #define BUF_MAX 32 // I.e 32 bits
 
+// See http://www.cs.trincoll.edu/~ram/cpsc110/inclass/conversions.html
 void print_base(int n, int b, char* digits) {
   char buf[BUF_MAX] = {0};
   int i = 0;
