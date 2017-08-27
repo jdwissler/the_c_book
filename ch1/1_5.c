@@ -12,11 +12,6 @@
 #define SORT_SIZE 5
 #define ASCII_ZERO 48
 
-static char map[] = {
-  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-  'A', 'B', 'C', 'D', 'E', 'F'
-};
-
 int get_int() {
   int integer_value = 0;
   char c;
@@ -29,6 +24,7 @@ int get_int() {
 }
 
 #define BUF_MAX 32 // I.e 32 bits
+
 void print_base(int n, int b, char* digits) {
   char buf[BUF_MAX] = {0};
   int i = 0;
@@ -37,6 +33,8 @@ void print_base(int n, int b, char* digits) {
     n /= b;
   }
 
+  // Since each digit is calculated in reverse we need to print the
+  // result in reverse.
   while (i >= 0) {
     printf("%c", buf[i--]);
   }
