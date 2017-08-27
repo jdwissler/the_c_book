@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define SORT_SIZE 5
 #define ASCII_ZERO 48
 
 int get_int() {
