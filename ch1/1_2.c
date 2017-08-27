@@ -1,26 +1,37 @@
-// A simple program that prints 'prime pairs'. (i.e 29, 31 or 11, 13)
+// A simple program that prints 'prime pairs' which only differ by 2. (i.e 29, 31 or 11, 13)
 // Author: John D. Wissler
 // Date: Sun Aug 27 2017
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+#define MAX_PRIME 10000
+
 int main() {
-  int this_number, divisor, not_prime;
-  this_number = 3;
-  while(this_number < 10000){
-    divisor = this_number / 2;
-    not_prime = 0;
-    while(divisor > 1){
-      if(this_number % divisor == 0){
-        not_prime = 1;
-        divisor = 0;
+  int last_prime = 0;
+  int divisor = 0;
+  bool is_prime = false;
+
+  for (int check = 3; check < MAX_PRIME; ++check) {
+    divisor = check / 2;
+    is_prime = true;
+
+    while (divisor > 1) {
+      if ((check % divisor) == 0) {
+        is_prime = false;
+        break;
       }
-      else
-        divisor = divisor-1;
+      divisor--;
     }
-    if(not_prime == 0)
-      printf("%d is a prime number\n", this_number);
-    this_number = this_number + 1;
+
+    if (is_prime) {
+      if ((check - last_prime) == 2) {
+        printf("Prime pair (with difference of 2): %d, %d\n", last_prime, check);
+      }
+      last_prime = check;
+    }
   }
-  exit(EXIT_SUCCESS);
+
+  return 0;
 }
