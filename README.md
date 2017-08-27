@@ -1,1 +1,1 @@
-This repository contains my answers to 'The C Book'.
+My answers to 'The C Book'.
