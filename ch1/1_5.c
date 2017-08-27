@@ -24,16 +24,29 @@ int get_int() {
 }
 
 void print_decimal(int num) {
+  printf("Decimal: ");
+  while (num >= 10) {
+    int n = num / 10;
+    num -= (10 * n);
+    printf("%d", n);
+  }
+  printf("%d\n", num % 10);
 }
 
 void print_hexadecimal(int num) {
+  printf("Hexadecimal: ");
+  printf("\n");
 }
 
 void print_binary(int num) {
+  printf("Binary: ");
+  printf("\n");
 }
 
 int main() {
   int num = get_int();
+
+  printf("Got number %d\n", num);
 
   print_decimal(num);
   print_hexadecimal(num);
